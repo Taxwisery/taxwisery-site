@@ -1221,6 +1221,43 @@ body {
   }
 }
 
+.service-mode {
+  margin-top: 1.6rem;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+}
+
+.service-mode strong {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.service-mode span {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.contact-cards article p + p {
+  margin-top: 0.2rem;
+}
+
+.experience-banner {
+  margin-bottom: 1.5rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: 20px;
+}
+
+.experience-banner strong {
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.experience-banner p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 </style>
 </head>
 <body>
@@ -1256,7 +1293,7 @@ body {
               <a class="btn btn-primary" href="#contact">Get Consultation</a>
               <a class="btn btn-ghost" href="#services">Explore Services</a>
             </div>
-            <div class="hero-metrics">
+            <div class="service-mode glass-card reveal"><strong>Service Availability</strong><span>Online service available across India. No office visit required for most consultations, filings, and compliance support.</span></div><div class="hero-metrics">
               <article>
                 <strong>Expert Team</strong>
                 <span>Chartered Accountants, Company Secretaries, and legal professionals working together.</span>
@@ -1326,7 +1363,7 @@ body {
           </div>
           <div class="about-copy reveal">
             <p>Founded in 2024, Taxwisery is a modern financial consultancy firm offering end-to-end tax, compliance, and business advisory services. Backed by a team of experienced Chartered Accountants, Company Secretaries, and Advocates, we ensure reliable, compliant, and efficient financial solutions.</p>
-            <div class="about-points">
+            <div class="experience-banner glass-card"><strong>Experienced Professional Team</strong><p>Taxwisery is supported by Advocates with more than 35 years of experience in this line of work and Chartered Accountants with more than 10 years of professional experience.</p></div><div class="about-points">
               <div class="glass-card">
                 <strong>India-focused expertise</strong>
                 <p>Practical advisory aligned with Indian taxation, corporate compliance, and regulatory requirements.</p>
@@ -1412,7 +1449,7 @@ body {
             <h2>Professional execution backed by multi-disciplinary expertise.</h2>
           </div>
           <div class="feature-list reveal">
-            <article class="feature-item glass-card"><strong>Experienced Multi-Disciplinary Team</strong><p>Integrated support from CA, CS, and legal professionals.</p></article>
+            <article class="feature-item glass-card"><strong>Experienced Multi-Disciplinary Team</strong><p>Integrated support from CA, CS, and legal professionals, including Advocates with 35+ years of experience and Chartered Accountants with 10+ years of experience.</p></article>
             <article class="feature-item glass-card"><strong>Accuracy &amp; Compliance Focused</strong><p>Every engagement is handled with documentation discipline and regulatory care.</p></article>
             <article class="feature-item glass-card"><strong>Fast Turnaround Time</strong><p>Responsive processes designed to move filings and registrations forward without delay.</p></article>
             <article class="feature-item glass-card"><strong>Transparent &amp; Professional Approach</strong><p>Clear communication, defined expectations, and dependable service standards.</p></article>
@@ -1507,7 +1544,7 @@ body {
           <div class="contact-copy reveal">
             <span class="eyebrow">Contact Us</span>
             <h2>Let us make your compliance journey more structured and stress-free.</h2>
-            <div class="contact-cards">
+            <div class="contact-cards"><article class="glass-card"><strong>Office Presence</strong><p>Head Office: SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p><p>Branch Office: F S Tower, Zira, Punjab</p></article>
               <article class="glass-card">
                 <strong>Phone</strong>
                 <a href="tel:+919877298858">+91-98772-98858</a>
@@ -1520,7 +1557,7 @@ body {
               </article>
               <article class="glass-card">
                 <strong>Address</strong>
-                <p>SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p>
+                <p>Head Office: SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307<br />Branch Office: F S Tower, Zira, Punjab</p>
               </article>
             </div>
           </div>
@@ -1529,7 +1566,7 @@ body {
             <label>Full Name<input type="text" name="name" placeholder="Enter your name" /></label>
             <label>Email Address<input type="email" name="email" placeholder="Enter your email" /></label>
             <label>Phone Number<input type="tel" name="phone" placeholder="Enter your phone number" /></label>
-            <label>Service Required<select name="service"><option>ITR Filing</option><option>GST Compliance</option><option>Business Registration</option><option>Bookkeeping</option><option>Tax Consultancy</option></select></label>
+            <label>Service Required<select name="service"><option>ITR Filing</option><option>TDS Related</option><option>GST Related</option><option>Registration</option><option>MSME Support</option><option>Bookkeeping</option><option>Tax Consultancy</option><option>Any Other</option></select></label>
             <label>Message<textarea name="message" rows="5" placeholder="Tell us briefly about your requirement"></textarea></label>
             <button type="submit" class="btn btn-primary">Send Inquiry</button>
             <p class="form-note">Your inquiry will be delivered directly to Taxwisery by email. You can also call or WhatsApp for immediate support.</p>
@@ -1558,7 +1595,7 @@ body {
       <div class="container footer-grid">
         <div>
           <a href="#top" class="brand footer-brand brand-logo"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22560%22%20height%3D%22150%22%20viewBox%3D%220%200%20560%20150%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2266%22%20cy%3D%2260%22%20r%3D%2246%22%20fill%3D%22%23F7F6F2%22%20stroke%3D%22%23D8B36B%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2227%22%20y%3D%2278%22%20fill%3D%22%23121212%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2258%22%20font-weight%3D%22700%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22136%22%20y%3D%2265%22%20fill%3D%22%23F7F8FB%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2252%22%20font-weight%3D%22300%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22138%22%20y%3D%2298%22%20fill%3D%22%23C9D2DE%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22400%22%20letter-spacing%3D%220.2%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
-          <p>Premium tax, compliance, and advisory support for businesses and professionals across India.</p>
+          <p>Premium tax, compliance, and advisory support for businesses and professionals across India, with online service delivery and office presence in Mohali and Zira, Punjab.</p>
         </div>
         <div>
           <h3>Quick Links</h3>
@@ -1578,7 +1615,7 @@ body {
           <a href="tel:+919877298858">+91-98772-98858</a>
           <a href="tel:+917740082362">+91-77400-82362</a>
           <a href="mailto:contactus@taxwisery.com">contactus@taxwisery.com</a>
-          <p>SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p>
+          <p>Head Office: SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307<br />Branch Office: F S Tower, Zira, Punjab</p>
         </div>
       </div>
     </footer>
@@ -1662,5 +1699,8 @@ document.querySelectorAll(".contact-form").forEach((form) => {
 </script>
 </body>
 </html>
+
+
+
 
 
