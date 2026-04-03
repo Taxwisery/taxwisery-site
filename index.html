@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#090909" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
 :root {
   --bg: #090909;
@@ -127,19 +127,69 @@ details[open] summary::after { content: "-"; }
 @media (max-width: 860px) { .review-banner { flex-direction: column; align-items: flex-start; } }
 
 
+.inline-link { margin-top: .75rem; color: #f3d39c; font-weight: 700; }
+.official-links .blog-card a { margin-top: .5rem; display: inline-flex; }
+
+body { font-family: "Sora", sans-serif; }
+.site-header { background: rgba(9,9,9,.82); }
+.site-nav { padding: .45rem; border-radius: 999px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); }
+.site-nav a { padding: .72rem .98rem; border-radius: 999px; font-size: .84rem; font-weight: 600; letter-spacing: .01em; }
+.site-nav a:hover, .site-nav a:focus-visible { background: rgba(255,255,255,.08); }
+.hero-copy h1 { font-size: clamp(3.1rem, 6vw, 6.2rem); max-width: 10.5ch; }
+.quick-links-wrap { padding-top: 0; }
+.quick-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.quick-link-card { padding: 1.2rem 1.1rem; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+.quick-link-card:hover { transform: translateY(-3px); border-color: rgba(208,168,92,.4); background: linear-gradient(180deg, rgba(208,168,92,.11), rgba(74,125,255,.05)); }
+.quick-link-card small { display: block; margin-bottom: .65rem; color: #f3d39c; font-weight: 700; letter-spacing: .12em; }
+.quick-link-card strong { display: block; margin-bottom: .45rem; font-size: 1rem; }
+.quick-link-card span { color: var(--muted); line-height: 1.65; }
+.service-card { position: relative; overflow: hidden; border-radius: 24px; }
+.service-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, rgba(208,168,92,.85), rgba(74,125,255,.8)); opacity: .55; }
+.service-card:nth-child(3n + 2) { background: linear-gradient(180deg, rgba(74,125,255,.07), rgba(255,255,255,.03)); }
+.service-card:nth-child(3n + 3) { background: linear-gradient(180deg, rgba(208,168,92,.08), rgba(255,255,255,.03)); }
+.testimonial-card { position: relative; padding-top: 3rem; }
+.testimonial-card::before { content: "★★★★★"; position: absolute; top: 1rem; left: 1.35rem; color: #f3d39c; letter-spacing: .18em; font-size: .78rem; }
+.site-footer { background: rgba(0,0,0,.18); }
+.brand-logo img { width: 220px; height: auto; display: block; filter: drop-shadow(0 8px 20px rgba(0,0,0,.25)); }
+.footer-brand img { width: 200px; }
+@media (max-width: 1100px) { .quick-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .site-nav { align-items: stretch; } .site-nav a { width: 100%; } .quick-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .brand-logo img { width: 170px; } .quick-links { grid-template-columns: 1fr; } }
+.hero { position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,7,7,.15), rgba(7,7,7,0)); pointer-events: none; }
+.hero-bg-orb { position: absolute; border-radius: 50%; filter: blur(18px); pointer-events: none; opacity: .8; }
+.hero-bg-orb-a { width: 340px; height: 340px; top: 90px; right: 8%; background: radial-gradient(circle, rgba(208,168,92,.22), transparent 65%); }
+.hero-bg-orb-b { width: 260px; height: 260px; bottom: 50px; left: 52%; background: radial-gradient(circle, rgba(74,125,255,.16), transparent 68%); }
+.hero-grid { position: relative; z-index: 1; align-items: stretch; }
+.hero-copy { display: flex; flex-direction: column; justify-content: center; }
+.hero-card { min-height: 100%; }
+.hero-luxury-note { max-width: 280px; justify-self: end; margin-top: -22px; }
+.hero-luxury-note small { color: #dfe6f0; line-height: 1.7; }
+.services-shell { padding: 1.3rem; border-radius: 32px; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
+.services-tabs { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.2rem; }
+.service-tab { min-height: 48px; padding: .85rem 1.15rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); color: #dce5f0; font: inherit; font-weight: 700; cursor: pointer; transition: transform .25s ease, background .25s ease, border-color .25s ease, color .25s ease; }
+.service-tab:hover { transform: translateY(-2px); }
+.service-tab.is-active { background: linear-gradient(135deg, rgba(208,168,92,.24), rgba(74,125,255,.16)); border-color: rgba(208,168,92,.38); color: #fff; }
+.service-panel { display: none; }
+.service-panel.is-active { display: block; }
+.review-banner { border-radius: 28px; }
+.blog-card, .testimonial-card, .feature-item, .process-step, .contact-form, .contact-cards article { backdrop-filter: blur(18px); }
+@media (max-width: 860px) { .hero-luxury-note { justify-self: stretch; max-width: none; margin-top: 0; } .services-tabs { display: grid; grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a href="#top" class="brand" aria-label="Taxwisery home">
-          <span class="brand-mark">TW</span>
-          <span>
-            <strong>Taxwisery</strong>
-            <small>Your Financial Pitstop</small>
-          </span>
-        </a>
+        <a href="#top" class="brand brand-logo" aria-label="Taxwisery home"><svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="96" rx="24" fill="#0E1116"/>
+  <circle cx="52" cy="48" r="28" fill="#F5F6F7"/>
+  <text x="31" y="58" fill="#111111" font-family="Georgia, Times New Roman, serif" font-size="28" font-weight="700">TW</text>
+  <text x="94" y="47" fill="#F5F6F7" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="700">Taxwisery</text>
+  <text x="94" y="69" fill="#A7B0BB" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="500">Your Financial Pitstop</text>
+</svg>
+</a>
         <nav class="site-nav" id="site-nav">
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -148,7 +198,7 @@ details[open] summary::after { content: "-"; }
           <a href="#contact">Contact</a>
         </nav>
         <div class="nav-actions">
-          <a class="btn btn-ghost" href="https://wa.me/919877298858" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="btn btn-ghost" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer">WhatsApp</a>
           <a class="btn btn-primary" href="#contact">Get Consultation</a>
           <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
         </div>
@@ -157,6 +207,8 @@ details[open] summary::after { content: "-"; }
 
     <main>
       <section class="hero section">
+        <div class="hero-bg-orb hero-bg-orb-a"></div>
+        <div class="hero-bg-orb hero-bg-orb-b"></div>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <span class="eyebrow">Founded in 2024 | India-Focused Tax &amp; Advisory Firm</span>
@@ -165,6 +217,7 @@ details[open] summary::after { content: "-"; }
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Get Consultation</a>
               <a class="btn btn-ghost" href="#contact">Contact Us</a>
+              <a class="btn btn-ghost" href="#services">Explore Services</a>
             </div>
             <div class="hero-chips">
               <span>GST filing India</span>
@@ -190,26 +243,42 @@ details[open] summary::after { content: "-"; }
               <div><small>Focused Coverage</small><strong>Registration, taxation, compliance and business advisory.</strong></div>
               <div><small>Service Model</small><strong>Consultation, filing, execution and ongoing support.</strong></div>
             </div>
+            <div class="hero-luxury-note glass-card">
+              <small>Preferred by businesses seeking structure, clarity, and dependable execution.</small>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="trust-strip section-sm"><div class="container trust-items reveal"><span>Company registration India</span><span>CA services India</span><span>GST returns &amp; compliance</span><span>Business advisory support</span></div></section>
 
+      <section class="section-sm quick-links-wrap">
+        <div class="container">
+          <div class="quick-links reveal">
+            <a class="quick-link-card" href="#services"><small>01</small><strong>Explore Services</strong><span>Tax, GST, registrations, bookkeeping</span></a>
+            <a class="quick-link-card" href="#updates"><small>02</small><strong>Official Updates</strong><span>TDS, income tax, and GST links</span></a>
+            <a class="quick-link-card" href="#testimonials"><small>03</small><strong>Client Trust</strong><span>Reviews, testimonials, and credibility</span></a>
+            <a class="quick-link-card" href="#contact"><small>04</small><strong>Get Started</strong><span>Contact, email, WhatsApp, and form</span></a>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="about"><div class="container about-grid"><div class="section-heading reveal"><span class="eyebrow">About Taxwisery</span><h2>Built for businesses that need precision, speed, and trust in every filing.</h2></div><div class="about-copy reveal"><p>Founded in 2024, Taxwisery is a modern financial consultancy firm offering end-to-end tax, compliance, and business advisory services. Backed by a team of experienced Chartered Accountants, Company Secretaries, and Advocates, we ensure reliable, compliant, and efficient financial solutions.</p><div class="about-points"><div class="glass-card"><strong>India-focused expertise</strong><p>Practical advisory aligned with Indian taxation, corporate compliance, and regulatory requirements.</p></div><div class="glass-card"><strong>Professional coordination</strong><p>Cross-functional support that keeps finance, legal, and compliance work aligned from day one.</p></div></div><div class="mini-stats"><article class="glass-card"><strong>2024</strong><span>Modern firm foundation</span></article><article class="glass-card"><strong>10+</strong><span>Core service categories</span></article><article class="glass-card"><strong>1 Team</strong><span>CA, CS &amp; legal coordination</span></article></div></div></div></section>
 
-      <section class="section" id="services"><div class="container"><div class="section-heading reveal centered"><span class="eyebrow">Core Services</span><h2>Structured solutions for tax, compliance, registration, and growth.</h2><p>Every engagement is designed to reduce friction, protect compliance, and give you confident financial clarity.</p></div><div class="services-grid">
+      <section class="section" id="services"><div class="container"><div class="section-heading reveal centered"><span class="eyebrow">Core Services</span><h2>Structured solutions for tax, compliance, registration, and growth.</h2><p>Every engagement is designed to reduce friction, protect compliance, and give you confident financial clarity.</p></div><div class="services-shell reveal"><div class="services-tabs" role="tablist" aria-label="Service categories"><button class="service-tab is-active" type="button" role="tab" aria-selected="true" data-tab="tax">Tax &amp; Filings</button><button class="service-tab" type="button" role="tab" aria-selected="false" data-tab="setup">Business Setup</button><button class="service-tab" type="button" role="tab" aria-selected="false" data-tab="compliance">Compliance &amp; Records</button></div><div class="service-panel is-active" data-panel="tax"><div class="services-grid">
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></div><h3>Income Tax Return Filing (ITR)</h3><p>Accurate return preparation and filing support for salaried individuals, professionals, and business owners.</p><a href="#contact">Learn More</a></article>
-        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6M17 4v6M5 11h14v9H5z"/></svg></div><h3>GST Returns &amp; Compliance</h3><p>Monthly, quarterly, and annual GST filing with reconciliation and proactive compliance oversight.</p><a href="#contact">Learn More</a></article>
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6zM9 9h6v6H9z"/></svg></div><h3>TDS Returns</h3><p>Timely TDS computation, deduction guidance, return filing, and documentation support.</p><a href="#contact">Learn More</a></article>
-        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></div><h3>Company, Partnership &amp; Proprietorship Registration</h3><p>Business setup support with entity selection, documentation, and registration filing assistance.</p><a href="#contact">Learn More</a></article>
-        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16M7 15V9M12 15V6M17 15v-3"/></svg></div><h3>Professional Bookkeeping</h3><p>Orderly records, reconciliations, ledgers, and management-ready bookkeeping processes.</p><a href="#contact">Learn More</a></article>
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><h3>Direct &amp; Indirect Tax Consultancy</h3><p>Strategic guidance for routine filings, tax positions, notices, and long-term compliance decisions.</p><a href="#contact">Learn More</a></article>
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M7 5h10l2 3v11H5V8zM8 12h8M8 16h5"/></svg></div><h3>Net Worth Certificates</h3><p>Professional certification support for visa, embassy, and other financial documentation needs.</p><a href="#contact">Learn More</a></article>
+      </div></div><div class="service-panel" data-panel="setup"><div class="services-grid">
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></div><h3>Company, Partnership &amp; Proprietorship Registration</h3><p>Business setup support with entity selection, documentation, and registration filing assistance.</p><a href="#contact">Learn More</a></article>
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><h3>MSME, FSSAI, IEC Registrations</h3><p>Regulatory registration assistance for businesses seeking operational readiness and market access.</p><a href="#contact">Learn More</a></article>
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 18l5-6 4 3 7-9"/></svg></div><h3>Project Reports &amp; CMA for Bank Loans</h3><p>Data-backed reports and CMA preparation tailored for financing discussions and lending requirements.</p><a href="#contact">Learn More</a></article>
-        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><h3>Direct &amp; Indirect Tax Consultancy</h3><p>Strategic guidance for routine filings, tax positions, notices, and long-term compliance decisions.</p><a href="#contact">Learn More</a></article>
+      </div></div><div class="service-panel" data-panel="compliance"><div class="services-grid">
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6M17 4v6M5 11h14v9H5z"/></svg></div><h3>GST Returns &amp; Compliance</h3><p>Monthly, quarterly, and annual GST filing with reconciliation and proactive compliance oversight.</p><a href="#contact">Learn More</a></article>
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16M7 15V9M12 15V6M17 15v-3"/></svg></div><h3>Professional Bookkeeping</h3><p>Orderly records, reconciliations, ledgers, and management-ready bookkeeping processes.</p><a href="#contact">Learn More</a></article>
         <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4"/></svg></div><h3>PAN, TAN &amp; Digital Signature Services</h3><p>Essential registration and signing support for individuals, firms, and companies managing compliance workflows.</p><a href="#contact">Learn More</a></article>
-      </div></div></section>
+      </div></div></div></div></section>
       <section class="section alt-section" id="why-us"><div class="container two-col-grid"><div class="section-heading reveal"><span class="eyebrow">Why Choose Us</span><h2>Professional execution backed by multi-disciplinary expertise.</h2></div><div class="feature-list reveal"><article class="feature-item glass-card"><strong>Experienced Multi-Disciplinary Team</strong><p>Integrated support from CA, CS, and legal professionals.</p></article><article class="feature-item glass-card"><strong>Accuracy &amp; Compliance Focused</strong><p>Every engagement is handled with documentation discipline and regulatory care.</p></article><article class="feature-item glass-card"><strong>Fast Turnaround Time</strong><p>Responsive processes designed to move filings and registrations forward without delay.</p></article><article class="feature-item glass-card"><strong>Transparent &amp; Professional Approach</strong><p>Clear communication, defined expectations, and dependable service standards.</p></article><article class="feature-item glass-card"><strong>Client-Centric Support</strong><p>Practical guidance tailored to your stage, structure, and business priorities.</p></article></div></div></section>
 
       <section class="section" id="process"><div class="container"><div class="section-heading reveal centered"><span class="eyebrow">Our Process</span><h2>A simple workflow that keeps filings and compliance on track.</h2></div><div class="process-grid"><article class="process-step reveal"><span>1</span><h3>Consultation</h3><p>We understand your requirement, timelines, and applicable compliance scope.</p></article><article class="process-step reveal"><span>2</span><h3>Document Collection</h3><p>We guide you on the exact paperwork and financial records needed.</p></article><article class="process-step reveal"><span>3</span><h3>Analysis &amp; Processing</h3><p>Our team reviews, validates, and prepares the necessary filings or advisory work.</p></article><article class="process-step reveal"><span>4</span><h3>Filing / Execution</h3><p>We complete the submission, registration, or documentation with careful follow-through.</p></article><article class="process-step reveal"><span>5</span><h3>Ongoing Support</h3><p>Post-filing assistance helps you stay compliant and informed as requirements evolve.</p></article></div></div></section>
@@ -220,25 +289,24 @@ details[open] summary::after { content: "-"; }
 
       <section class="section alt-section" id="insights"><div class="container"><div class="section-heading reveal centered"><span class="eyebrow">Tax Updates &amp; Insights</span><h2>Useful reads on tax updates, GST, and ITR planning.</h2></div><div class="blog-grid"><article class="blog-card reveal glass-card"><span class="blog-tag">GST</span><h3>How businesses can stay filing-ready throughout the year</h3><p>A practical framework for better records, reconciliations, and smoother compliance cycles.</p><a href="#contact">Read Article</a></article><article class="blog-card reveal glass-card"><span class="blog-tag">ITR</span><h3>What to organize before your return filing window opens</h3><p>Documents, timelines, and review points that help avoid rushed year-end filing.</p><a href="#contact">Read Article</a></article><article class="blog-card reveal glass-card"><span class="blog-tag">Advisory</span><h3>Why growing firms need finance and compliance in sync</h3><p>How integrated advisory reduces operational risk and improves decision-making quality.</p><a href="#contact">Read Article</a></article></div></div></section>
 
-      <section class="section" id="contact"><div class="container contact-grid"><div class="contact-copy reveal"><span class="eyebrow">Contact Us</span><h2>Let’s make your compliance journey more structured and stress-free.</h2><div class="contact-cards"><article class="glass-card"><strong>Phone</strong><a href="tel:+919877298858">+91-98772-98858</a><a href="tel:+917740082362">+91-77400-82362</a></article><article class="glass-card"><strong>Email</strong><a href="mailto:contactus@taxwisery.com">contactus@taxwisery.com</a></article><article class="glass-card"><strong>Address</strong><p>SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p></article></div></div><form class="contact-form glass-card reveal"><label>Full Name<input type="text" name="name" placeholder="Enter your name" /></label><label>Email Address<input type="email" name="email" placeholder="Enter your email" /></label><label>Phone Number<input type="tel" name="phone" placeholder="Enter your phone number" /></label><label>Service Required<select name="service"><option>ITR Filing</option><option>GST Compliance</option><option>Business Registration</option><option>Bookkeeping</option><option>Tax Consultancy</option></select></label><label>Message<textarea name="message" rows="5" placeholder="Tell us briefly about your requirement"></textarea></label><button type="submit" class="btn btn-primary">Send Inquiry</button><p class="form-note">This form is UI-ready and can be connected to your preferred backend, email, or CRM workflow.</p></form></div></section>
+      <section class="section official-links" id="updates"><div class="container"><div class="section-heading reveal centered"><span class="eyebrow">Official Updates</span><h2>Direct links to government portals for TDS, Income Tax, and GST updates.</h2><p>Until Taxwisery publishes in-house articles, visitors can go straight to official sources.</p></div><div class="blog-grid"><article class="blog-card reveal glass-card"><span class="blog-tag">TDS</span><h3>Official TDS Rates</h3><p>Visit the Income Tax Department reference page for TDS rate information and related guidance.</p><a href="https://www.incometaxindia.gov.in/w/tds-rates-1" target="_blank" rel="noreferrer">Open Official TDS Page</a></article><article class="blog-card reveal glass-card"><span class="blog-tag">Income Tax</span><h3>Income Tax Latest Updates</h3><p>Open the official Income Tax Department portal to check notices, announcements, and taxpayer updates.</p><a href="https://www.incometax.gov.in/iec/foportal" target="_blank" rel="noreferrer">Open Income Tax Portal</a></article><article class="blog-card reveal glass-card"><span class="blog-tag">GST</span><h3>GST Updates &amp; Notifications</h3><p>Access the official GST portal under CBIC for updates, advisories, rates, and notifications.</p><a href="https://cbic-gst.gov.in/index.html" target="_blank" rel="noreferrer">Open GST Portal</a></article></div></div></section><section class="section" id="contact"><div class="container contact-grid"><div class="contact-copy reveal"><span class="eyebrow">Contact Us</span><h2>Let’s make your compliance journey more structured and stress-free.</h2><div class="contact-cards"><article class="glass-card"><strong>Phone</strong><a href="tel:+919877298858">+91-98772-98858</a><a href="tel:+917740082362">+91-77400-82362</a><a class="inline-link" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer">Chat on WhatsApp</a></article><article class="glass-card"><strong>Email</strong><a href="mailto:contactus@taxwisery.com">contactus@taxwisery.com</a></article><article class="glass-card"><strong>Address</strong><p>SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p></article></div></div><form class="contact-form glass-card reveal"><label>Full Name<input type="text" name="name" placeholder="Enter your name" /></label><label>Email Address<input type="email" name="email" placeholder="Enter your email" /></label><label>Phone Number<input type="tel" name="phone" placeholder="Enter your phone number" /></label><label>Service Required<select name="service"><option>ITR Filing</option><option>GST Compliance</option><option>Business Registration</option><option>Bookkeeping</option><option>Tax Consultancy</option></select></label><label>Message<textarea name="message" rows="5" placeholder="Tell us briefly about your requirement"></textarea></label><button type="submit" class="btn btn-primary">Send Inquiry</button><p class="form-note">This form is UI-ready and can be connected to your preferred backend, email, or CRM workflow.</p></form></div></section>
 
-      <section class="section cta-section"><div class="container"><div class="cta-banner glass-card reveal"><div><span class="eyebrow">Ready To Start</span><h2>Need a trusted team for tax, compliance, or registration support?</h2><p>Speak with Taxwisery for structured guidance, responsive execution, and clear next steps.</p></div><div class="cta-actions"><a class="btn btn-primary" href="#contact">Get Consultation</a><a class="btn btn-ghost" href="https://wa.me/919877298858" target="_blank" rel="noreferrer">Chat on WhatsApp</a></div></div></div></section>
+      <section class="section cta-section"><div class="container"><div class="cta-banner glass-card reveal"><div><span class="eyebrow">Ready To Start</span><h2>Need a trusted team for tax, compliance, or registration support?</h2><p>Speak with Taxwisery for structured guidance, responsive execution, and clear next steps.</p></div><div class="cta-actions"><a class="btn btn-primary" href="#contact">Get Consultation</a><a class="btn btn-ghost" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer">Chat on WhatsApp</a></div></div></div></section>
     </main>
 
     <footer class="site-footer"><div class="container footer-grid"><div><a href="#top" class="brand footer-brand brand-logo"><svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="320" height="96" rx="24" fill="#0E1116"/>
-  <circle cx="48" cy="48" r="28" fill="#F5F6F7"/>
-  <path d="M33 36H61V42H50V61H44V42H33V36Z" fill="#111111"/>
-  <path d="M61 36V42H55V61H49V36H61Z" fill="#111111"/>
-  <path d="M84 34H88.8471L95.125 43.9715L101.403 34H106.25L97.6118 47.7215L106.583 62H101.736L95.125 51.5823L88.5139 62H83.6668L92.6382 47.7215L84 34Z" fill="#F5F6F7"/>
-  <text x="116" y="50" fill="#F5F6F7" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="700">Taxwisery</text>
-  <text x="116" y="72" fill="#A7B0BB" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="500">Your Financial Pitstop</text>
+  <circle cx="52" cy="48" r="28" fill="#F5F6F7"/>
+  <text x="31" y="58" fill="#111111" font-family="Georgia, Times New Roman, serif" font-size="28" font-weight="700">TW</text>
+  <text x="94" y="47" fill="#F5F6F7" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="700">Taxwisery</text>
+  <text x="94" y="69" fill="#A7B0BB" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="500">Your Financial Pitstop</text>
 </svg>
 </a><p>Premium tax, compliance, and advisory support for businesses and professionals across India.</p></div><div><h3>Quick Links</h3><a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#insights">Blog</a></div><div><h3>Services</h3><a href="#services">Direct Tax</a><a href="#services">GST &amp; Compliance</a><a href="#services">Business Setup</a></div><div><h3>Contact Info</h3><a href="tel:+919877298858">+91-98772-98858</a><a href="tel:+917740082362">+91-77400-82362</a><a href="mailto:contactus@taxwisery.com">contactus@taxwisery.com</a><p>SCO 2, 3rd Floor, Plaza 117, Sector 117, Mohali - 140307</p></div></div></footer>
 
-    <a class="whatsapp-float" href="https://wa.me/919877298858" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5c0 4.7-3.8 8.5-8.5 8.5-1.5 0-3-.4-4.2-1.1L3 20l1.2-4c-.8-1.3-1.2-2.8-1.2-4.5C3 6.8 6.8 3 11.5 3S20 6.8 20 11.5zm-5 2.2c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.7-1.4-3.8-3.2-.3-.4.3-.4.8-1.4.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.5-.3.4-1.1 1.1-1.1 2.8s1.1 3.2 1.3 3.4c.2.2 2.2 3.3 5.3 4.6 2 .9 2.8 1 3.8.8.6-.1 1.8-.8 2-1.5.3-.7.3-1.3.2-1.4-.2-.1-.4-.2-.7-.3z"/></svg></a>
+    <a class="whatsapp-float" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5c0 4.7-3.8 8.5-8.5 8.5-1.5 0-3-.4-4.2-1.1L3 20l1.2-4c-.8-1.3-1.2-2.8-1.2-4.5C3 6.8 6.8 3 11.5 3S20 6.8 20 11.5zm-5 2.2c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.7-1.4-3.8-3.2-.3-.4.3-.4.8-1.4.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.5-.3.4-1.1 1.1-1.1 2.8s1.1 3.2 1.3 3.4c.2.2 2.2 3.3 5.3 4.6 2 .9 2.8 1 3.8.8.6-.1 1.8-.8 2-1.5.3-.7.3-1.3.2-1.4-.2-.1-.4-.2-.7-.3z"/></svg></a>
   </div>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>`r`n  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
 const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
@@ -258,6 +326,21 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+document.querySelectorAll(".service-tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.tab;
+
+    document.querySelectorAll(".service-tab").forEach((item) => {
+      item.classList.toggle("is-active", item === tab);
+      item.setAttribute("aria-selected", item === tab ? "true" : "false");
+    });
+
+    document.querySelectorAll(".service-panel").forEach((panel) => {
+      panel.classList.toggle("is-active", panel.dataset.panel === target);
+    });
+  });
+});
 
 (function () {
   emailjs.init({ publicKey: "WQUoFmNSm4X2a_Vht" });
@@ -300,6 +383,8 @@ document.querySelectorAll(".contact-form").forEach((form) => {
 </script>
 </body>
 </html>
+
+
 
 
 
