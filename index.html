@@ -951,13 +951,283 @@ textarea::placeholder {
   }
 }
 
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.sector-card {
+  padding: 1.5rem;
+  border-radius: 22px;
+}
+
+.sector-card small {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #f2d59b;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sector-card strong {
+  display: block;
+  margin-bottom: 0.65rem;
+}
+
+.sector-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 1120px) {
+  .sector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .sector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sector-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Premium minimal refinement */
+:root {
+  --bg: #071019;
+  --bg-soft: #0b1520;
+  --panel: rgba(12, 19, 29, 0.78);
+  --panel-strong: rgba(10, 16, 25, 0.94);
+  --muted: #afbac8;
+  --line: rgba(255, 255, 255, 0.07);
+  --gold: #d4b06a;
+  --gold-soft: rgba(212, 176, 106, 0.1);
+  --blue: #7d96ff;
+  --blue-soft: rgba(125, 150, 255, 0.1);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(212, 176, 106, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 16%, rgba(125, 150, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, #06101a 0%, #08111b 48%, #0a121d 100%);
+}
+
+.site-header {
+  background: rgba(7, 13, 20, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-wrap {
+  min-height: 88px;
+}
+
+.brand-logo img {
+  width: 224px;
+}
+
+.footer-brand img {
+  width: 224px;
+}
+
+.site-nav {
+  gap: 1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.site-nav a {
+  padding: 0.35rem 0;
+  border-radius: 0;
+  color: #c8d1dd;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: transparent;
+  border-bottom-color: rgba(212, 176, 106, 0.7);
+}
+
+.btn {
+  min-height: 46px;
+  padding: 0.88rem 1.2rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #dcc084, #f1e1bf);
+  box-shadow: 0 10px 28px rgba(212, 176, 106, 0.16);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.025);
+}
+
+.hero {
+  padding-top: 92px;
+}
+
+.hero-bg-a,
+.hero-bg-b {
+  opacity: 0.55;
+}
+
+.hero-copy h1 {
+  max-width: 9.8ch;
+}
+
+.hero-copy .lead {
+  max-width: 52ch;
+}
+
+.hero-metrics article,
+.service-card,
+.process-step,
+.testimonial-card,
+.blog-card,
+.mini-stats article,
+.quick-link-card,
+.sector-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(13, 21, 31, 0.9), rgba(10, 17, 26, 0.88));
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.hero-card,
+.services-shell,
+.review-banner,
+.cta-banner,
+.contact-form {
+  border-radius: 24px;
+}
+
+.hero-card-top {
+  margin-bottom: 1.1rem;
+  color: #eef2f7;
+}
+
+.status-pill {
+  background: rgba(105, 210, 165, 0.1);
+}
+
+.priority-item {
+  border-radius: 18px;
+}
+
+.quick-link-card {
+  border-radius: 18px;
+}
+
+.quick-link-card:hover {
+  background: rgba(255,255,255,0.035);
+  border-color: rgba(212, 176, 106, 0.22);
+}
+
+.quick-link-card small {
+  color: #dcc084;
+}
+
+.section-heading.centered {
+  max-width: 720px;
+}
+
+.service-card::before {
+  height: 3px;
+  opacity: 0.75;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+}
+
+.review-banner {
+  align-items: flex-start;
+}
+
+.testimonial-card::before {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+.contact-form,
+.contact-cards article,
+.about-points .glass-card,
+.feature-item,
+.faq-list details,
+.review-banner,
+.cta-banner {
+  border-radius: 18px;
+}
+
+.footer-grid {
+  gap: 2.4rem;
+}
+
+.footer-grid h3 {
+  color: #eef2f7;
+  font-weight: 700;
+}
+
+.whatsapp-float {
+  width: 56px;
+  height: 56px;
+}
+
+@media (max-width: 860px) {
+  .site-nav {
+    gap: 0.35rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(9, 15, 23, 0.98);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .site-nav a {
+    padding: 0.7rem 0.2rem;
+    border-bottom: 0;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    background: rgba(255,255,255,0.06);
+    border-bottom-color: transparent;
+  }
+
+  .brand-logo img,
+  .footer-brand img {
+    width: 194px;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-logo img,
+  .footer-brand img {
+    width: 176px;
+  }
+}
+
 </style>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a href="#top" class="brand brand-logo" aria-label="Taxwisery home"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22600%22%20height%3D%22180%22%20viewBox%3D%220%200%20600%20180%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2298%22%20cy%3D%2266%22%20r%3D%2264%22%20fill%3D%22%23F7F7F8%22%2F%3E%0A%20%20%3Ctext%20x%3D%2234%22%20y%3D%2288%22%20fill%3D%22%23111111%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2266%22%20font-weight%3D%22700%22%20letter-spacing%3D%220%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22184%22%20y%3D%2286%22%20fill%3D%22%23F5F7FA%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2262%22%20font-weight%3D%22300%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%2240%22%20y%3D%22160%22%20fill%3D%22%23F5F7FA%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2254%22%20font-weight%3D%22300%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
+        <a href="#top" class="brand brand-logo" aria-label="Taxwisery home"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22560%22%20height%3D%22150%22%20viewBox%3D%220%200%20560%20150%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2266%22%20cy%3D%2260%22%20r%3D%2246%22%20fill%3D%22%23F7F6F2%22%20stroke%3D%22%23D8B36B%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2227%22%20y%3D%2278%22%20fill%3D%22%23121212%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2258%22%20font-weight%3D%22700%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22136%22%20y%3D%2265%22%20fill%3D%22%23F7F8FB%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2252%22%20font-weight%3D%22300%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22138%22%20y%3D%2298%22%20fill%3D%22%23C9D2DE%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22400%22%20letter-spacing%3D%220.2%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
         <nav class="site-nav" id="site-nav">
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -981,7 +1251,7 @@ textarea::placeholder {
           <div class="hero-copy reveal">
             <span class="eyebrow">Founded in 2024 | India-focused tax, compliance, and advisory</span>
             <h1>Your Financial Pitstop for All Tax &amp; Compliance Needs</h1>
-            <p class="lead">Trusted financial solutions delivered by an expert team of CA, CS &amp; legal professionals.</p>
+            <p class="lead">Trusted financial solutions delivered by an expert team of CA, CS &amp; legal professionals serving corporates, exporters, travel agencies, immigration services, real estate businesses, and growing enterprises.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Get Consultation</a>
               <a class="btn btn-ghost" href="#services">Explore Services</a>
@@ -993,7 +1263,7 @@ textarea::placeholder {
               </article>
               <article>
                 <strong>Focused Support</strong>
-                <span>GST, ITR, registrations, compliance records, bookkeeping, and advisory services.</span>
+                <span>GST, ITR, registrations, compliance records, bookkeeping, exports support, and advisory services.</span>
               </article>
               <article>
                 <strong>Professional Delivery</strong>
@@ -1118,6 +1388,23 @@ textarea::placeholder {
         </div>
       </section>
 
+      <section class="section alt-section" id="sectors">
+        <div class="container">
+          <div class="section-heading reveal centered">
+            <span class="eyebrow">Sector Expertise</span>
+            <h2>Support designed for operationally demanding industries and growth-focused businesses.</h2>
+            <p>Taxwisery works with businesses that need practical compliance support, documentation discipline, and advisory clarity across fast-moving sectors.</p>
+          </div>
+          <div class="sector-grid">
+            <article class="sector-card reveal glass-card"><small>Corporate</small><strong>Corporate Compliance &amp; Finance Support</strong><p>Structured assistance for companies handling regular filings, records, registrations, and multi-layer compliance responsibilities.</p></article>
+            <article class="sector-card reveal glass-card"><small>Exports</small><strong>Export-Oriented Business Support</strong><p>Registration, documentation, and compliance support for businesses engaged in import-export and international trade processes.</p></article>
+            <article class="sector-card reveal glass-card"><small>Travel</small><strong>Travel Agency Operations</strong><p>Practical filing and registration support for travel businesses managing bookings, vendor payments, and service-led operations.</p></article>
+            <article class="sector-card reveal glass-card"><small>Immigration</small><strong>Immigration &amp; Visa Service Support</strong><p>Documentation-driven support for immigration-related businesses requiring orderly records, tax filings, and financial certifications.</p></article>
+            <article class="sector-card reveal glass-card"><small>Real Estate</small><strong>Real Estate &amp; Property Businesses</strong><p>Support for compliance, bookkeeping, tax work, and documentation needs across property-focused business activity.</p></article>
+            <article class="sector-card reveal glass-card"><small>Advisory</small><strong>Growth-Stage Business Guidance</strong><p>Aligned advisory for firms expanding operations and needing dependable support across tax, registrations, and finance processes.</p></article>
+          </div>
+        </div>
+      </section>
       <section class="section alt-section" id="why-us">
         <div class="container two-col-grid">
           <div class="section-heading reveal">
@@ -1270,7 +1557,7 @@ textarea::placeholder {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="#top" class="brand footer-brand brand-logo"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22600%22%20height%3D%22180%22%20viewBox%3D%220%200%20600%20180%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2298%22%20cy%3D%2266%22%20r%3D%2264%22%20fill%3D%22%23F7F7F8%22%2F%3E%0A%20%20%3Ctext%20x%3D%2234%22%20y%3D%2288%22%20fill%3D%22%23111111%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2266%22%20font-weight%3D%22700%22%20letter-spacing%3D%220%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22184%22%20y%3D%2286%22%20fill%3D%22%23F5F7FA%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2262%22%20font-weight%3D%22300%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%2240%22%20y%3D%22160%22%20fill%3D%22%23F5F7FA%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2254%22%20font-weight%3D%22300%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
+          <a href="#top" class="brand footer-brand brand-logo"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22560%22%20height%3D%22150%22%20viewBox%3D%220%200%20560%20150%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2266%22%20cy%3D%2260%22%20r%3D%2246%22%20fill%3D%22%23F7F6F2%22%20stroke%3D%22%23D8B36B%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2227%22%20y%3D%2278%22%20fill%3D%22%23121212%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2258%22%20font-weight%3D%22700%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22136%22%20y%3D%2265%22%20fill%3D%22%23F7F8FB%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2252%22%20font-weight%3D%22300%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22138%22%20y%3D%2298%22%20fill%3D%22%23C9D2DE%22%20font-family%3D%22Segoe%20UI%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22400%22%20letter-spacing%3D%220.2%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
           <p>Premium tax, compliance, and advisory support for businesses and professionals across India.</p>
         </div>
         <div>
@@ -1375,4 +1662,5 @@ document.querySelectorAll(".contact-form").forEach((form) => {
 </script>
 </body>
 </html>
+
 
