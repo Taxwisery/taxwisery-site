@@ -10,17 +10,757 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+:root {
+  --bg: #f5f7fb;
+  --bg-soft: #edf2fb;
+  --surface: #ffffff;
+  --surface-soft: #f9fbff;
+  --text: #10213b;
+  --muted: #60708b;
+  --line: #dbe4f0;
+  --blue: #2f73ff;
+  --blue-soft: #eaf2ff;
+  --gold: #d7b167;
+  --gold-soft: #fff9ee;
+  --shadow: 0 18px 44px rgba(21, 41, 76, 0.08);
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --container: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(47, 115, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #f5f7fb 48%, #eef3fb 100%);
+}
+
+a { color: inherit; text-decoration: none; }
+svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section { padding: 84px 0; }
+.section-sm { padding: 28px 0; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(16, 33, 59, 0.06);
+}
+
+.nav-wrap {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-logo img {
+  width: 214px;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-weight: 500;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+  border-bottom-color: var(--blue);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.88rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font: 500 16px "Inter", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(47, 115, 255, 0.18);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-block { width: 100%; }
+
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 4px auto;
+}
+
+.hero-grid,
+.trust-grid,
+.overview-grid,
+.services-grid,
+.updates-grid,
+.contact-layout,
+.contact-cards,
+.footer-grid,
+.testimonial-grid,
+.focus-tabs,
+.hero-notes {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero {
+  padding-top: 74px;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: start;
+}
+
+.eyebrow,
+.mini-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1,
+.section-heading h2,
+.form-header h2,
+.cta-card h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+}
+
+.hero-copy h1 {
+  font-size: 52px;
+  line-height: 1.08;
+  font-weight: 700;
+  max-width: 10.5ch;
+}
+
+.section-heading h2,
+.form-header h2,
+.cta-card h2 {
+  font-size: 36px;
+  line-height: 1.18;
+  font-weight: 600;
+}
+
+.lead,
+.note-card span,
+.form-header p,
+.card p,
+.contact-cards a,
+.contact-cards p,
+.form-note,
+.footer-grid p,
+.footer-grid a,
+.section-heading p,
+.updates-card li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.hero-copy .lead {
+  margin-top: 1rem;
+  max-width: 58ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.hero-notes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.6rem;
+}
+
+.note-card,
+.card,
+.cta-card,
+.lead-form,
+.updates-card {
+  background: rgba(255,255,255,0.96);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.note-card {
+  padding: 1rem 1.1rem;
+}
+
+.note-card strong,
+.card strong,
+.form-header h2 {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hero-side {
+  display: grid;
+  gap: 1rem;
+}
+
+.lead-form,
+.updates-card,
+.card,
+.cta-card {
+  padding: 1.35rem;
+}
+
+.form-header {
+  margin-bottom: 0.75rem;
+}
+
+.mini-pill {
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--gold-soft);
+  color: #9f7427;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.lead-form label {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  padding: 0.92rem 1rem;
+  font: 400 16px "Inter", sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder { color: #8b98aa; }
+
+.updates-card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.updates-card li + li {
+  margin-top: 0.85rem;
+}
+
+.trust-bar {
+  padding-top: 0;
+}
+
+.trust-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.trust-item {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.icon-wrap {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  margin: 0 auto 0.75rem;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.trust-item strong,
+.service-card h3,
+.update-card strong,
+.testimonial-card span {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.trust-item small,
+.card small {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.workspace {
+  padding-top: 46px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 1.8rem;
+}
+
+.focus-tabs {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1.7rem;
+}
+
+.focus-tab {
+  min-height: 50px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--muted);
+  font: 500 16px "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.focus-tab.is-active {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+.focus-panel { display: none; }
+.focus-panel.is-active { display: block; }
+
+.overview-grid,
+.services-grid,
+.updates-grid,
+.testimonial-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-card,
+.card {
+  min-height: 100%;
+}
+
+.card small {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  color: #9f7427;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-band {
+  margin-top: 1.2rem;
+}
+
+.services-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.service-card .icon-wrap {
+  margin: 0 0 0.95rem;
+}
+
+.updates-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.updates-grid a,
+.contact-cards .inline-link {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.contact-layout {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+}
+
+.contact-cards {
+  grid-template-columns: 1fr;
+}
+
+.contact-cards article p {
+  margin: 0;
+}
+
+.contact-cards article p + p {
+  margin-top: 0.2rem;
+}
+
+.sector-brief {
+  height: fit-content;
+}
+
+.testimonial-card {
+  position: relative;
+  padding-top: 1.45rem;
+}
+
+.cta-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.site-footer {
+  padding: 40px 0 56px;
+  border-top: 1px solid rgba(16, 33, 59, 0.06);
+  background: rgba(255,255,255,0.7);
+}
+
+.footer-grid {
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.footer-brand img {
+  width: 214px;
+  margin-bottom: 1rem;
+}
+
+.footer-grid h3 {
+  margin: 0 0 0.9rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-grid a,
+.footer-grid p {
+  display: block;
+  margin: 0 0 0.65rem;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #20a96c, #25d366);
+  box-shadow: 0 18px 34px rgba(37, 211, 102, 0.28);
+  z-index: 40;
+}
+
+.whatsapp-float svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+  stroke: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1120px) {
+  .hero-grid,
+  .contact-layout,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .updates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-copy h1 {
+    font-size: 42px;
+  }
+
+  .section-heading h2,
+  .form-header h2,
+  .cta-card h2 {
+    font-size: 30px;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-actions .btn { display: none; }
+  .nav-toggle { display: inline-block; }
+
+  .hero-grid,
+  .trust-grid,
+  .hero-notes,
+  .overview-grid,
+  .services-grid,
+  .testimonial-grid,
+  .focus-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-tab {
+    width: 100%;
+  }
+
+  .brand-logo img,
+  .footer-brand img {
+    width: 186px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(var(--container), calc(100% - 1.2rem));
+  }
+
+  .section,
+  .section-sm {
+    padding: 64px 0;
+  }
+
+  .hero {
+    padding-top: 56px;
+  }
+
+  .hero-copy h1 {
+    font-size: 36px;
+  }
+
+  .section-heading h2,
+  .form-header h2,
+  .cta-card h2 {
+    font-size: 26px;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .focus-tab {
+    width: 100%;
+  }
+
+  .brand-logo img,
+  .footer-brand img {
+    width: 170px;
+  }
+}
+
+/* Brand separation pass */
+:root {
+  --bg: #f6f4ee;
+  --bg-soft: #eeebe2;
+  --surface: #fffdf8;
+  --surface-soft: #f9f7f1;
+  --text: #14181f;
+  --muted: #5f6672;
+  --line: #ddd8cd;
+  --blue: #2d5b53;
+  --blue-soft: #e5efec;
+  --gold: #b79255;
+  --gold-soft: #fbf5e8;
+  --shadow: 0 18px 40px rgba(36, 34, 29, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(183, 146, 85, 0.08), transparent 24%),
+    linear-gradient(180deg, #fbfaf6 0%, #f6f4ee 48%, #f0ede6 100%);
+}
+
+.site-header {
+  background: rgba(255, 253, 248, 0.92);
+}
+
+.eyebrow {
+  background: var(--gold-soft);
+  color: #8b6a34;
+}
+
+.mini-pill {
+  background: var(--blue-soft);
+  color: #2d5b53;
+}
+
+.btn-primary {
+  background: #2d5b53;
+  box-shadow: 0 12px 28px rgba(45, 91, 83, 0.16);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #254c45;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-bottom-color: var(--gold);
+}
+
+.note-card,
+.card,
+.cta-card,
+.lead-form,
+.updates-card,
+.trust-item {
+  background: rgba(255,253,248,0.96);
+}
+
+.icon-wrap {
+  background: var(--gold-soft);
+  color: #8b6a34;
+}
+
+.focus-tab.is-active {
+  background: #14181f;
+  border-color: #14181f;
+}
+
+.updates-grid a,
+.contact-cards .inline-link {
+  color: #2d5b53;
+}
+
+.footer-grid h3 {
+  color: #14181f;
+}
+
+</style>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a href="#top" class="brand brand-logo" aria-label="Taxwisery home"><img src="logo.svg" alt="Taxwisery logo" /></a>
+        <a href="#top" class="brand brand-logo" aria-label="Taxwisery home"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22560%22%20height%3D%22132%22%20viewBox%3D%220%200%20560%20132%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2254%22%20r%3D%2238%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%231B1B1B%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2222%22%20y%3D%2268%22%20fill%3D%22%23101010%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2244%22%20font-weight%3D%22700%22%20textLength%3D%2272%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22118%22%20y%3D%2256%22%20fill%3D%22%23101827%22%20font-family%3D%22Poppins%2C%20Segoe%20UI%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2238%22%20font-weight%3D%22500%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22120%22%20y%3D%2284%22%20fill%3D%22%234B5565%22%20font-family%3D%22Inter%2C%20Segoe%20UI%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22500%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
         <nav class="site-nav" id="site-nav">
           <a href="#hero">Home</a>
           <a href="#workspace">Dashboard</a>
-          <a href="whatsapp-broadcast.html">WhatsApp Tool</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -41,7 +781,6 @@
             <p class="lead">Taxwisery provides financial consultancy, bookkeeping, auditing, company formation, partnership registration, business taxation, corporate compliance, trademarks, copyrights, DSCs, and related registrations through online support as well as Mohali and Zira offices.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#lead-form">Request a Callback</a>
-              <a class="btn btn-ghost" href="whatsapp-broadcast.html">Open WhatsApp Tool</a>
               <a class="btn btn-ghost" href="#workspace">Explore Services</a>
             </div>
             <div class="hero-notes">
@@ -133,12 +872,6 @@
                 <small>Registrations &amp; IP</small>
                 <strong>MSME, DSC, trademarks, copyrights</strong>
                 <p>Registration and protection support for businesses that need operational readiness and identity protection.</p>
-              </article>
-              <article class="card reveal">
-                <small>Client Communication</small>
-                <strong>WhatsApp reminder campaigns</strong>
-                <p>Prepare client lists, group ITR, GST, or TDS reminders, and export a ready WhatsApp broadcast batch from one screen.</p>
-                <a class="inline-link" href="whatsapp-broadcast.html">Open broadcast workspace</a>
               </article>
             </div>
 
@@ -237,7 +970,6 @@
             </div>
             <div class="cta-actions">
               <a class="btn btn-primary" href="#lead-form">Request a Callback</a>
-              <a class="btn btn-ghost" href="whatsapp-broadcast.html">Open WhatsApp Tool</a>
               <a class="btn btn-ghost" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer">Chat on WhatsApp</a>
             </div>
           </div>
@@ -248,14 +980,13 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="#top" class="brand footer-brand brand-logo"><img src="logo.svg" alt="Taxwisery logo" /></a>
+          <a href="#top" class="brand footer-brand brand-logo"><img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22560%22%20height%3D%22132%22%20viewBox%3D%220%200%20560%20132%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2254%22%20r%3D%2238%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%231B1B1B%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2222%22%20y%3D%2268%22%20fill%3D%22%23101010%22%20font-family%3D%22Georgia%2C%20Times%20New%20Roman%2C%20serif%22%20font-size%3D%2244%22%20font-weight%3D%22700%22%20textLength%3D%2272%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3ETW%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22118%22%20y%3D%2256%22%20fill%3D%22%23101827%22%20font-family%3D%22Poppins%2C%20Segoe%20UI%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2238%22%20font-weight%3D%22500%22%3ETaxwisery%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22120%22%20y%3D%2284%22%20fill%3D%22%234B5565%22%20font-family%3D%22Inter%2C%20Segoe%20UI%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22500%22%3EYour%20Financial%20Pitstop%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Taxwisery logo" /></a>
           <p>CA-assisted financial consultancy, bookkeeping, auditing, business taxation, and registration support available online, in Mohali, and in Zira.</p>
         </div>
         <div>
           <h3>Quick Links</h3>
           <a href="#hero">Home</a>
           <a href="#workspace">Dashboard</a>
-          <a href="whatsapp-broadcast.html">WhatsApp Tool</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
         </div>
@@ -278,6 +1009,82 @@
     <a class="whatsapp-float" href="https://wa.me/919877298858?text=Hello%20Taxwisery%2C%20I%20would%20like%20to%20discuss%20tax%20and%20compliance%20services." target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5c0 4.7-3.8 8.5-8.5 8.5-1.5 0-3-.4-4.2-1.1L3 20l1.2-4c-.8-1.3-1.2-2.8-1.2-4.5C3 6.8 6.8 3 11.5 3S20 6.8 20 11.5zm-5 2.2c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.7-1.4-3.8-3.2-.3-.4.3-.4.8-1.4.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.5-.3.4-1.1 1.1-1.1 2.8s1.1 3.2 1.3 3.4c.2.2 2.2 3.3 5.3 4.6 2 .9 2.8 1 3.8.8.6-.1 1.8-.8 2-1.5.3-.7.3-1.3.2-1.4-.2-.1-.4-.2-.7-.3z"/></svg></a>
   </div>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+const navToggle = document.getElementById("nav-toggle");
+const siteNav = document.getElementById("site-nav");
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => siteNav.classList.toggle("is-open"));
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => siteNav.classList.remove("is-open"));
+  });
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+document.querySelectorAll(".focus-tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.panel;
+
+    document.querySelectorAll(".focus-tab").forEach((item) => {
+      item.classList.toggle("is-active", item === tab);
+      item.setAttribute("aria-selected", item === tab ? "true" : "false");
+    });
+
+    document.querySelectorAll(".focus-panel").forEach((panel) => {
+      panel.classList.toggle("is-active", panel.dataset.panel === target);
+    });
+  });
+});
+
+(function () {
+  emailjs.init({ publicKey: "WQUoFmNSm4X2a_Vht" });
+})();
+
+document.querySelectorAll(".lead-form").forEach((form) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    const note = form.querySelector(".form-note");
+
+    const templateParams = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      service: form.service.value,
+      message: form.message.value,
+    };
+
+    if (button) {
+      button.textContent = "Sending...";
+      button.disabled = true;
+    }
+
+    try {
+      await emailjs.send("service_cd9c5uo", "template_wf0guj5", templateParams);
+      if (button) button.textContent = "Inquiry Sent";
+      if (note) note.textContent = "Thanks. Your inquiry has been sent successfully. Taxwisery will get back to you soon.";
+      form.reset();
+    } catch (error) {
+      if (button) {
+        button.textContent = "Request a Callback";
+        button.disabled = false;
+      }
+      if (note) note.textContent = "Something went wrong while sending your inquiry. Please call, email, or WhatsApp directly.";
+    }
+  });
+});
+
+</script>
 </body>
 </html>
+
